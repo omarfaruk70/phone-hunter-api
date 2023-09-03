@@ -1,3 +1,4 @@
+// collected data using fetch api
 const loadPhone = async (searchText) => {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
@@ -9,6 +10,7 @@ const loadPhone = async (searchText) => {
   // console.log(phones) 
 };
 
+// display all data from loadphone function
 const displayphones = (phones) => {
     const cardContainer = document.getElementById('phoneContainer');
     cardContainer.textContent = '';
@@ -38,7 +40,7 @@ const displayphones = (phones) => {
     cardContainer.appendChild(phoneCard)    
   });
 };
-
+// handle search functionality
 const handleSearch = () =>{
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value;
