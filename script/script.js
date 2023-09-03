@@ -1,28 +1,31 @@
 // collected data using fetch api
-const loadPhone = async (searchText) => {
+const loadPhone = async (searchText,isShowAll) => {
   const response = await fetch(
     `https://openapi.programming-hero.com/api/phones?search=${searchText}`
   );
   const data = await response.json();
   // console.log(data)
   const phones = data.data;
-  displayphones(phones);
+  displayphones(phones, isShowAll);
   // console.log(phones) 
 };
 
 // display all data from loadphone function
-const displayphones = (phones) => {
+const displayphones = (phones, isShowAll) => {
     const cardContainer = document.getElementById('phoneContainer');
     cardContainer.textContent = '';
     console.log(phones.length)
     const showAllContainer = document.getElementById('showAll-container');
     // display show all button if there are more than 20 phones.
-    if(phones.length > 12){
+    if(phones.length > 12 && !isShowAll){
       showAllContainer.classList.remove('hidden');
     }else{
       showAllContainer.classList.add('hidden');
+    };
+    if(!isShowAll){
+      phones = phones.slice(0, 12) 
+
     }
-    phones = phones.slice(0, 12)  // show only 20 phones if have many many phones
     phones.forEach((phone) => {
     // console.log(phone)
     const phoneCard = document.createElement("div");
@@ -39,11 +42,29 @@ const displayphones = (phones) => {
         `;
     cardContainer.appendChild(phoneCard)    
   });
+  toggleSpinner(false)
 };
 // handle search functionality
-const handleSearch = () =>{
+const handleSearch = (isShowAll) =>{
   const searchField = document.getElementById('search-field');
   const searchText = searchField.value;
   // console.log(searchText)
-  loadPhone(searchText);
+  toggleSpinner(true)
+  loadPhone(searchText, isShowAll);
+}
+
+
+// spinner functionality 
+const toggleSpinner = (isLoading) =>{
+  const loadingSpinner = document.getElementById('loading-spinner');
+  if(isLoading){
+    loadingSpinner.classList.remove('hidden');
+  }else{
+    loadingSpinner.classList.add('hidden')
+  }
+}
+
+// handle show all Button
+const handleShowAll = () =>{
+  handleSearch(true)
 }

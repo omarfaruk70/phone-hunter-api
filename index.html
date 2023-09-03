@@ -27,8 +27,8 @@
       <section>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="phoneContainer">
           <!-- spinner or loader div -->
-          <div class="grid justify-center items-center">
-            <span class="loading loading-dots bg-primary loading-lg hidden"></span>
+          <div id="loading-spinner" class="hidden mx-56">
+            <span  class="loading loading-dots bg-primary loading-lg"></span>
           </div>
           <!-- <div class="card w-96 bg-orange-100 shadow-xl">
             <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
@@ -42,8 +42,8 @@
           </div> -->
         </div>
         <!-- show all button -->
-        <div id="showAll-container" class="hidden">
-          <button class="btn btn-primary text-center mt-10 mb-10  text-white font-bold mx-20">Show All</button>
+        <div id="showAll-container" class="hidden text-center my-8">
+          <button onclick=" handleShowAll()" class="btn btn-primary ">Show All</button>
         </div>
       </section>
     </main>
