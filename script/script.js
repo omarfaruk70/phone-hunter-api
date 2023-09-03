@@ -12,7 +12,16 @@ const loadPhone = async (searchText) => {
 const displayphones = (phones) => {
     const cardContainer = document.getElementById('phoneContainer');
     cardContainer.textContent = '';
-  phones.forEach((phone) => {
+    console.log(phones.length)
+    const showAllContainer = document.getElementById('showAll-container');
+    // display show all button if there are more than 20 phones.
+    if(phones.length > 12){
+      showAllContainer.classList.remove('hidden');
+    }else{
+      showAllContainer.classList.add('hidden');
+    }
+    phones = phones.slice(0, 12)  // show only 20 phones if have many many phones
+    phones.forEach((phone) => {
     // console.log(phone)
     const phoneCard = document.createElement("div");
     phoneCard.classList = `card mx-auto bg-red-100 shadow-xl`;
