@@ -22,7 +22,7 @@ const displayphones = (phones, isShowAll) => {
     }else{
       showAllContainer.classList.add('hidden');
     };
-    if(!isShowAll){
+    if(!isShowAll){ 
       phones = phones.slice(0, 12) 
 
     }
