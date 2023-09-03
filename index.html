@@ -14,22 +14,38 @@
   </head>
   <body>
     <header>
-        <h1 class=" text-center mt-10 mb-10 text-primary font-bold text-4xl">Hunting Phone & Watch</h1>
-        <small class="text-center mt-5 mb-8 font-bold mx-12">grab your <span class="text-violet-600">iphone, samsung, oppo, Huawei </span> phone and watch</small>
+      <h1 class="text-center mt-10 mb-10 text-primary font-bold text-4xl">
+        Hunting Phone & Watch
+      </h1>
+      <small class="text-center mt-5 mb-8 font-bold mx-8 lg:mx-12"
+        >grab your
+        <span class="text-violet-600">iphone, samsung, oppo, Huawei </span>
+        phone and watch</small
+      >
     </header>
     <main>
       <!-- search container section  -->
-      <section  class="px-10 py-3 mb-5 ">
-        <input id="search-field" type="text" placeholder="Search your phone here..." class="input input-bordered input-primary w-full max-w-xs bg-gray-100" />
-        <button class="btn btn-primary px-10" onclick="handleSearch()">Search</button>
+      <section class="px-10 py-3 mb-5">
+        <input
+          id="search-field"
+          type="text"
+          placeholder="Search your phone here..."
+          class="input input-bordered input-primary w-full max-w-xs bg-gray-100"
+        />
+        <button class="btn btn-primary px-10" onclick="handleSearch()">
+          Search
+        </button>
       </section>
 
       <section>
         <!-- spinner or loader div -->
         <div id="loading-spinner" class="hidden mx-56">
-          <span  class="loading loading-dots bg-primary loading-lg"></span>
+          <span class="loading loading-dots bg-primary loading-lg"></span>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="phoneContainer">          
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          id="phoneContainer"
+        >
           <!-- <div class="card w-96 bg-orange-100 shadow-xl">
             <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
             <div class="card-body">
@@ -43,8 +59,27 @@
         </div>
         <!-- show all button -->
         <div id="showAll-container" class="hidden text-center my-8">
-          <button onclick=" handleShowAll()" class="btn btn-primary ">Show All</button>
+          <button onclick=" handleShowAll()" class="btn btn-primary">
+            Show All
+          </button>
         </div>
+      </section>
+
+      <!--open  modal  section -->
+      <section>
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="show_details_modal" class="modal modal-bottom sm:modal-middle">
+          <form method="dialog" class="modal-box">
+            <div id="details-information-container">
+              <!-- <h3 id="show-phone-details-name" class="font-bold text-lg"></h3>
+            <p class="py-4"></p> -->
+            </div>
+            <div class="modal-action flex justify-center">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn btn-info">Close</button>
+            </div>
+          </form>
+        </dialog>
       </section>
     </main>
     <footer></footer>
